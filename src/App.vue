@@ -13,6 +13,7 @@ const schema = {
     name: {
       type: "string",
       minLength: 1,
+      maxLength: 5,
       description: "The task's name"
     },
     description: {
@@ -90,7 +91,7 @@ const uischema = {
 };
 
 const data = ref({
-  name: "Send email to Adrian",
+  name: "名称默认值",
   description: "Confirm if you have passed the subject\nHereby ...",
   done: true,
   recurrence: "Daily",
@@ -109,8 +110,6 @@ provide('styles', myStyles);
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <h1>JSON Forms Vue 3</h1>
   <div class="myform">
     <json-forms :data="data" :renderers="renderers" :schema="schema" :uischema="uischema" @change="onChange" />
   </div>
